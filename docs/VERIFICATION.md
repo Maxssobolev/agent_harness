@@ -41,6 +41,37 @@ A green run must correspond to verification that exists and ran.
   applicable yet".
 - In a Git repository, `git diff --check` clean is part of every change.
 
+### Retries
+
+When a check passes on retry, report the initial failure, the evidence or
+known cause, any targeted investigation performed, and the successful retry.
+Preserve both outcomes. Distinguish failures in the implementation or tests
+(including deterministic test failures) from transient external or
+infrastructure failures and timeouts or resource limits when evidence
+supports that distinction. Leave the cause unresolved when the evidence is
+inconclusive.
+
+## Claims audit
+
+Before the final implementation handoff and again before closing substantial
+work, check the changed and directly related documentation and report against
+the repository and verification evidence. Confirm that claims about planned
+and implemented work, current and next stages, test counts, command names,
+file paths, workflow and job terminology, dependencies, completion, and review
+status match what can be established. Correct stale claims and record the
+outcome and any unresolved discrepancies. Inspection is sufficient and the
+scope should match the project and change.
+
+## Closure verification
+
+Before delivery, inspect the contents of the closure changes, including new
+files, for accidentally included secrets, tokens, and credentials. When
+committing, check the staged content that will actually be committed. A clean
+result from a limited pattern scan gives no guarantee that the changes are
+free of secrets. If you find a potential secret, stop delivery until it is
+resolved. In the report, identify the affected location without exposing the
+suspected value.
+
 ## Stage-aware growth
 
 Document the intended full verification hierarchy as a **labelled target** —

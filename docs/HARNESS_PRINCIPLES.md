@@ -24,6 +24,8 @@ dependency.
   and confirmed dead-ends are written down where the project keeps such things.
 - "We discussed this in chat" is not a source of truth.
 - When the source of truth moves, documentation moves in the *same* change.
+- For planned work, refer to the canonical plan when briefing an author or
+  reviewer. Stable references keep long requirements usable across sessions.
 
 ### C2. Progressive disclosure
 
@@ -85,11 +87,12 @@ are a blocker.
 
 For high-risk / substantial changes, separate the **author** role from the
 **reviewer** role where practical. The reviewer inspects the actual repository
-state and diff, not the author's report. Findings are triaged **blocker /
-important / minor**, and the review states whether the change is **ready**. See
-[REVIEW.md](REVIEW.md). Strongly recommended for high-risk agent-driven work;
-not mandatory for every project or change (see
-[WORKFLOW.md](WORKFLOW.md#governance-model)).
+state and diff and reports findings and readiness under the local review
+policy. See [REVIEW.md](REVIEW.md) and the
+[risk model](WORKFLOW.md#governance-model).
+
+An immutable handoff, when the delivery model supports it, gives the author
+and reviewer the same reproducible change to inspect.
 
 ---
 

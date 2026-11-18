@@ -12,15 +12,15 @@ After that the project owns its harness and never refers back here.
 
 The harness has **no runtime, package-manager, or application-framework
 dependencies**. It is plain Markdown. It assumes a **Git repository** for the
-documented workflow (`git status`, diff review, `git diff --check`). Any
-`AGENTS.md`-style instruction files are a **tooling convention**, not an
-application dependency, and are themselves optional per project.
+documented workflow (`git status`, diff review, `git diff --check`). The
+required root `AGENTS.md` is a documentation convention. Per-agent adapters
+are optional.
 
-There is no CLI and V1 does not add one.
+There is no CLI.
 
 ## Shape: minimal core + optional modules
 
-**Required V1 core — every initialized project has:**
+**Required core — every initialized project has:**
 
 - a root **`AGENTS.md`** — the portable/default repository-instruction
   convention (never optional);
@@ -82,6 +82,7 @@ docs/                     authoritative generic statements (also the source boot
   VERIFICATION.md         what a verification command may mean (environment-neutral)
   REVIEW.md               the independent-review workflow (a module)
   MODULES.md              catalog: core vs optional modules, and how to choose
+  exec-plans/             plans for changes to this repository
 
 templates/                per-artifact skeletons a project copies and then owns
   README.md               which template belongs to which module; suggested paths
@@ -98,10 +99,7 @@ prompts/                  role briefs for recurring agent tasks
   close-work.md           closure housekeeping
 ```
 
-## V1 scope and dogfooding
+## Scope and dogfooding
 
-V1 is deliberately minimal. The harness's own lifecycle (execution plans,
-independent review, owner acceptance) is **not applied retroactively** to this
-initial creation — that lifecycle did not exist while V1 was being written.
-Dogfooding begins with the first substantial post-V1 change. See
-[`AGENTS.md`](AGENTS.md).
+The harness's own lifecycle applies to substantial work after the creation
+of V1. See [`AGENTS.md`](AGENTS.md).

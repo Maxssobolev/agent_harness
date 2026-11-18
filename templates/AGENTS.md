@@ -35,11 +35,16 @@ work must be discoverable here.
 
 ## Change workflow
 
-> Inline the core workflow, or keep a local `docs/WORKFLOW.md` and summarize here.
+> Inline the core workflow, or keep it in a local `docs/WORKFLOW.md` and link
+> to it here.
 > Core habits: read relevant context first; inspect version-control state;
 > smallest coherent change; do not invent missing requirements; no unrelated
 > cleanup; keep docs in sync; run the checks; review your own diff; honest
-> reporting; do not commit/push unless asked.
+> reporting; follow the delivery contract.
+>
+> If the project chooses a delivery default, state it in the local workflow.
+> If it adopts independent review, state its readiness gate in local review
+> policy and point to it here.
 
 Governance is **risk-based**: <state this project's low / medium / high-risk
 policy — what needs a plan, what needs independent review, what needs owner

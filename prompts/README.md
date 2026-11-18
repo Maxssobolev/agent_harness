@@ -12,7 +12,7 @@ verification policy — that lives in the project's repository after bootstrap.
 | [review-change.md](review-change.md) | Independent reviewer | When project policy calls for independent review of a change. |
 | [close-work.md](close-work.md) | Closer | Housekeeping after review and (if configured) owner acceptance. |
 
-Keep author and reviewer as different sessions/agents for high-risk work. Adapt
-wording to the project; keep the intent. `bootstrap-project.md` is the only one
+Use the review brief where the project calls for independent review. Adapt
+wording to the project and keep the intent. `bootstrap-project.md` is the only one
 that reads `agent_harness` — the rest run inside a self-contained project and
 never need it.

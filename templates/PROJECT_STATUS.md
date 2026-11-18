@@ -1,9 +1,8 @@
 # <Project> — Status
 
-> Module: project-status. A **current snapshot**, not a history. Git history,
-> completed execution plans, and any changelog hold "what was done" — this file
-> does not accumulate a task log. Keep it short; link to authoritative docs
-> rather than restating them. Use this project's chosen paths for those links.
+> Module: project-status. Keep the snapshot short and replace obsolete entries.
+> See the documentation rules in the local workflow for where history belongs.
+> Link to current evidence using the project's chosen paths.
 >
 > Delete guidance lines before use.
 
@@ -15,12 +14,9 @@
 
 ## Current capabilities
 
-> Optional. What works today that a contributor should know — recently
-> established state, available commands, what verification currently covers.
-> Trim entries once they are just "how it works" and belong in the architecture
-> or readme instead.
+> Optional. List current capabilities a contributor needs for the next step.
 
-- <capability / recently established fact>
+- <capability>
 
 ## Verification state
 

@@ -16,6 +16,7 @@ then own. Nothing here is meant to be pasted wholesale into a project.
 | Core change workflow + risk-based governance | [docs/WORKFLOW.md](docs/WORKFLOW.md) |
 | What a verification command may mean | [docs/VERIFICATION.md](docs/VERIFICATION.md) |
 | The independent-review workflow (a module) | [docs/REVIEW.md](docs/REVIEW.md) |
+| Execution plans for this repository | [docs/exec-plans/](docs/exec-plans/) (active plans in `active/`) |
 | Core vs optional modules, and how to choose | [docs/MODULES.md](docs/MODULES.md) |
 | Per-artifact skeletons projects copy | [templates/README.md](templates/README.md) |
 | Role briefs for recurring agent tasks | [prompts/README.md](prompts/README.md) |
@@ -41,17 +42,21 @@ addition:
    and saw the result. `git diff --check` clean.
 6. **Review the full `git diff` yourself** before reporting; report the real
    results of the checks you ran.
-7. Do not `git commit` or `git push` unless the owner asks.
+
+This repository's [default delivery mode](docs/WORKFLOW.md#delivery-contract)
+is `worktree`.
 
 ## Governance for this repo
 
 Use the risk model in [docs/WORKFLOW.md](docs/WORKFLOW.md#governance-model). A
 restructure, a new/removed principle, or a change to the bootstrap contract is
 **high risk**: write an execution plan (from
-[templates/EXEC_PLAN.md](templates/EXEC_PLAN.md), under `docs/exec-plans/active/`
-— create that directory when first needed), have it independently reviewed
-([docs/REVIEW.md](docs/REVIEW.md)), and get explicit owner acceptance before it
-closes. Typo/wording fixes are low risk: just make them.
+[templates/EXEC_PLAN.md](templates/EXEC_PLAN.md), under `docs/exec-plans/active/`),
+have it [independently reviewed](docs/REVIEW.md), and get explicit owner
+acceptance before it closes. Typo/wording fixes are low risk: just make them.
+
+The local [readiness gate](docs/REVIEW.md#readiness-and-verdict) is zero open
+Blockers.
 
 **V1 exemption.** The initial creation of V1 is not governed by this lifecycle —
 the lifecycle did not exist yet. Dogfooding starts with the first substantial

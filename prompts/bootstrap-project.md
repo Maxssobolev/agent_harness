@@ -68,4 +68,5 @@ back to it.
 
 Modules selected and why; document locations chosen; files created; decisions
 encoded; open questions; verification results including the reference-scan and
-the self-contained acceptance answer. Do not commit unless the owner asks.
+the self-contained acceptance answer. Follow the delivery contract for
+the bootstrap task.

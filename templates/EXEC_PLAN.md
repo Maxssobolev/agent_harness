@@ -3,6 +3,11 @@
 Status: <in progress | completed YYYY-MM-DD>
 <one or two lines: where this plan is in its lifecycle; review rounds so far>
 
+> Optional fields
+>
+> - **Delivery** — <task override from the local delivery contract>
+> - **Review gate** — <reference to the local readiness policy, if applicable>
+
 > Module: exec-plans. Working document for one coherent piece of work — usually
 > medium/high-risk or multi-session. Written before the work, kept current
 > during it, finalized with the real result. Keep it self-contained; do not link
@@ -24,9 +29,8 @@ Status: <in progress | completed YYYY-MM-DD>
 
 ## Verification
 
-<The exact checks to run. Once run, their **real** results go here: passed /
-failed with output / skipped with reason / not applicable yet. Never claim a
-check that did not run.>
+<The exact checks and their actual results, per the local verification
+contract. Record the final claims audit at handoff and closure.>
 
 ## Progress
 
@@ -48,6 +52,12 @@ verdicts factually, including findings that were correct as-is.>
 ## Constraints
 
 <Rules the work must respect.>
+
+## Requirements
+
+<For a large plan, optionally give requirements stable IDs such as `R1` or
+`S6-R1` for task and review references. Follow the local plan workflow for
+revisions and supersessions.>
 
 ## Implementation steps
 

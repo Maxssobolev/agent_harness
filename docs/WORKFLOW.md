@@ -26,7 +26,40 @@ Applies to any repository, from a one-file library up.
 7. **Review the whole diff yourself** before reporting.
 8. **Report** the files you changed and the *actual* results of the checks you
    ran.
-9. **Do not commit or push** unless the owner/maintainer asks.
+9. **Fulfill the [delivery contract](#delivery-contract)** for the task.
+
+---
+
+## Delivery contract
+
+| Mode | Delivery is complete when |
+| --- | --- |
+| `worktree` | The requested changes are available in the worktree. No commit or push is authorized by this mode. |
+| `commit` | The intended changes are committed locally. |
+| `commit+push` | The intended changes are committed and the resulting revision is pushed successfully to the intended destination. |
+
+Use the mode explicitly requested for the task, then the execution plan's mode
+if specified, then the project default. Use `worktree` when none is specified.
+`commit` authorizes a local commit only.
+
+Complete the requested Git actions before reporting delivery complete. If a
+commit or push fails, report the failure and the delivery state reached. The
+handoff records the base revision, resulting commit SHA and push outcome where
+applicable, and the final `git status`.
+
+### Closure delivery
+
+For closure housekeeping, follow the task's delivery mode and
+[closure verification](VERIFICATION.md#closure-verification).
+For `commit` and `commit+push`, inspect the entire staged diff without path
+filters and confirm that every staged change is authorized closure work.
+Preserve unrelated changes and their staged or unstaged state. Avoid destructive
+Git operations. If you cannot safely isolate the closure commit, stop delivery
+and report the blocking index state.
+
+If the mode requires a commit, create one new closure commit from the verified
+staged changes, using the owner's message if supplied. For `commit+push`, confirm
+that the revision about to be pushed is that closure commit.
 
 ---
 
@@ -65,7 +98,9 @@ Independent review ([REVIEW.md](REVIEW.md)) and the
 high-risk agent-driven work**. They are project-configurable: a small
 single-owner project may fold "reviewer" and "owner" into one person; a
 regulated or multi-team project may require both plus more. Whatever a project
-chooses, it states it in its own workflow doc.
+chooses, it states it in its own workflow doc. When independent review is
+adopted, the project's [readiness gate](REVIEW.md#readiness-and-verdict) and
+[review target](REVIEW.md#review-target) guide that handoff.
 
 ---
 
@@ -85,6 +120,22 @@ real results once run), **Progress** (a running log). Add **Context**,
 **Non-goals**, **Constraints**, **Implementation steps**, **Decisions made**, and
 **Problems / failed approaches** when they carry real information — omit empty
 headings. Template: [templates/EXEC_PLAN.md](../templates/EXEC_PLAN.md).
+
+### Step sizing
+
+Consider splitting a large step when it combines correctness protocols or
+failure domains that could be committed and reviewed independently. Look for
+separate immutable commit protocols, independent state machines, distinct
+external side effects, independently testable security or integrity contracts,
+and separate rollback or resume paths. File count alone gives no sizing signal.
+
+### Requirement references
+
+A large plan may give requirements stable IDs such as `R1` or `S6-R1` so tasks
+and reviews can cite the plan directly. Once implementation starts, keep each ID
+when revising its requirement. Record removals and supersessions in the plan
+under their original IDs and record any replacement ID. The plan remains the
+canonical record. Small plans can use ordinary sections or bullets.
 
 ### Lifecycle
 
@@ -109,15 +160,25 @@ The project documents whichever it uses.
 
 ---
 
+## Author handoff
+
+For substantial work, briefly report the implemented scope and changed files,
+known deviations or open points, actual verification results, delivery state
+and exact revision information from the [delivery contract](#delivery-contract),
+and the next lifecycle step. Include the outcome of the
+[claims audit](VERIFICATION.md#claims-audit).
+
+---
+
 ## Owner acceptance
 
 *(Module — the explicit sign-off gate. Configure it for high-risk work; a
 solo project may treat "the maintainer merges it" as acceptance.)*
 
-Where configured: a plan or high-risk change **closes only after the
-owner/maintainer explicitly accepts the result** — an approving review is
-necessary but not sufficient, and the author's belief that it is done never
-closes it. Closure housekeeping: [prompts/close-work.md](../prompts/close-work.md).
+Where configured, a plan or high-risk change **closes only after the
+owner/maintainer explicitly accepts the result**. Complete any review required
+by project policy before seeking acceptance. See
+[closure delivery](#closure-delivery) for housekeeping.
 
 ---
 
